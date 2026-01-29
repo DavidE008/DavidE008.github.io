@@ -6,4 +6,4 @@ permalink: /resume/
 
 You can download my resume here:
 
-- **PDF:** "C:\Users\datat\Downloads\_Resume_.pdf"
+- **PDF:** "[_Resume_.pdf](https://github.com/user-attachments/files/24947427/_Resume_.pdf)"
