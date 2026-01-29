@@ -14,4 +14,4 @@ I’m a **Computer Science (B.S.) student at the University of Houston (2022–2
 ### Links
 - **UH CS Department:** https://www.cs.uh.edu
 - **LinkedIn:** https://www.linkedin.com/in/david-eldridge8
-- **Resume (PDF):** /files/David_Eldridge_Resume.pdf
+- **Resume (PDF): [_Resume_.pdf](https://github.com/user-attachments/files/24947610/_Resume_.pdf)
