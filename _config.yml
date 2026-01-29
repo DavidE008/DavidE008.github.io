@@ -187,19 +187,7 @@ kramdown:
   enable_coderay: false
 
 # Collections (safe to keep even if unused)
-collections:
-  teaching:
-    output: true
-    permalink: /:collection/:path/
-  publications:
-    output: true
-    permalink: /:collection/:path/
-  portfolio:
-    output: true
-    permalink: /:collection/:path/
-  talks:
-    output: true
-    permalink: /:collection/:path/
+
 
 # Defaults
 defaults:
