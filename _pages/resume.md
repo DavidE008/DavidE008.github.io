@@ -6,4 +6,4 @@ permalink: /resume/
 
 You can download my resume here:
 
-- **PDF:** /files/_Resume_.pdf
+- **PDF:** "C:\Users\datat\Downloads\_Resume_.pdf"
