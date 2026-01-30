@@ -12,18 +12,32 @@
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
 </script>
 <style>
-  .masthead {
+  /* Make sure the header doesn't overlap content */
+  .masthead,
+  .masthead__inner-wrap,
+  .greedy-nav {
     position: sticky !important;
     top: 0 !important;
     z-index: 9999 !important;
   }
-  .page__inner-wrap,
-  .page__content,
-  .initial-content {
-    padding-top: 3.5rem !important;
+
+  /* Push the whole site content down below the nav */
+  body {
+    padding-top: 5rem !important;
   }
-  html { scroll-padding-top: 5rem; }
+
+  /* Short pages need extra safety */
+  .layout--single .page__inner-wrap,
+  .layout--single .page__content {
+    padding-top: 0 !important;
+  }
+
+  /* Anchor offsets */
+  html {
+    scroll-padding-top: 6rem;
+  }
 </style>
+
 
 
 <!-- For all browsers -->
