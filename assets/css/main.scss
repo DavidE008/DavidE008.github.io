@@ -43,71 +43,77 @@
 ;
 
 /* =====================================================
-   Fix: Top nav / "sitemap bar" covering page content
+   Fix: Navigation & Header Overlap
    ===================================================== */
 
-/* 1) Make the header take up space (prevents overlap) */
 .masthead {
   position: sticky !important;
   top: 0 !important;
   z-index: 9999 !important;
 }
 
-/* 2) Add a universal top offset for pages just in case */
-body {
-  padding-top: 0 !important; /* sticky masthead should remove need for padding */
-}
-
-/* 3) Extra safety for short pages where the first content sits too high */
-.layout--single .page__inner-wrap,
-.layout--single .page__content,
-.initial-content,
-.page__inner-wrap,
-.page__content {
-  padding-top: 2.5rem !important;
-}
-
-/* 4) Fix anchor jumps (if clicking links lands under the masthead) */
 html {
   scroll-padding-top: 5rem;
 }
+
 /* =====================================================
-   Fix: Sidebar overlapping the Footer
+   Fix: Sidebar Overlapping Footer & Middle Scrollbar
    ===================================================== */
 
-/* 1. Ensure the main content wrapper expands to hold its children */
+/* Ensure the main container holds children correctly */
 #main {
-  display: flex;
-  flex-wrap: wrap;
+  display: flex !important;
+  flex-wrap: nowrap;
   align-items: flex-start;
-  margin-bottom: 2em; /* Spacing before footer starts */
+  min-height: 80vh; /* Keeps footer down on short pages like Resume */
+  overflow: visible !important;
 }
 
-/* 2. Constrain the sidebar so it doesn't "bleed" into the footer */
+/* Sidebar behavior: Sticky but contained */
 .sidebar {
+  position: sticky !important;
+  top: 6rem; /* Adjust based on masthead height */
+  height: auto !important;
+  max-height: calc(100vh - 7rem);
+  overflow-y: auto; /* Allows sidebar to scroll independently if too long */
   z-index: 10;
-  margin-bottom: 2em;
-  /* If the sidebar is sticky, this tells it where to stop */
-  max-height: calc(100vh - 100px); 
-  overflow-y: auto;
+  padding-bottom: 2rem;
 }
 
-/* 3. Force the footer to stay at the bottom and clear the sidebar */
-.page__footer {
-  position: relative;
-  clear: both;
-  z-index: 20; /* Higher than sidebar */
-  background: var(--background-color, #fff); /* Prevents transparency issues */
-  width: 100%;
-  margin-top: 3em;
-  border-top: 1px solid rgba(0,0,0,0.1);
-}
-
-/* 4. Hide scrollbar on sidebar for a cleaner look while keeping fix #2 active */
+/* Hide scrollbar on sidebar for a cleaner look */
 .sidebar::-webkit-scrollbar {
   display: none;
 }
 .sidebar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Page content area */
+.archive, .page {
+  flex: 1;
+  padding-top: 2.5rem !important;
+}
+
+/* Footer: Force to bottom and clear sidebar */
+.page__footer {
+  position: relative !important;
+  clear: both !important;
+  z-index: 20;
+  margin-top: 4rem !important;
+  background-color: #333 !important; /* Matches your dark theme background */
+  width: 100%;
+}
+
+/* Mobile Responsiveness: Stack sidebar on top of content */
+@media (max-width: 1024px) {
+  #main {
+    flex-direction: column;
+  }
+  .sidebar {
+    position: relative !important;
+    top: 0 !important;
+    max-height: none;
+    width: 100%;
+  }
 }
