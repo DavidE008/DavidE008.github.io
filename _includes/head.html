@@ -46,6 +46,32 @@
     document.documentElement.style.scrollPaddingTop = (h + 16) + 'px';
   });
 </script>
+<style>
+  /* Make sure the header doesn't overlap content */
+  .masthead,
+  .masthead__inner-wrap,
+  .greedy-nav {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+  }
+
+  /* (Optional) keep your top offset if you want */
+  body { padding-top: 5rem !important; }
+  html { scroll-padding-top: 6rem; }
+
+  /* ✅ FIX: Footer overlaps short pages — add bottom room */
+  .page__inner-wrap,
+  .page__content,
+  .sidebar.sticky {
+    padding-bottom: 10rem !important;
+  }
+
+  /* Extra safety: ensure footer behaves normally */
+  .page__footer {
+    position: relative !important;
+  }
+</style>
 
 
 
