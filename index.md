@@ -3,7 +3,7 @@ layout: splash
 title: "David Eldridge"
 permalink: /
 header:
-  overlay_image: /images/profile.jpg
+  overlay_image: /images/Prof1.jpg
   overlay_filter: 0.2
 ---
 
