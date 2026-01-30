@@ -43,15 +43,31 @@
 ;
 
 /* =====================================================
-   Fix: Sticky masthead overlapping page content
+   Fix: Top nav / "sitemap bar" covering page content
    ===================================================== */
 
-/* Push all page content below the fixed navigation bar */
-.initial-content {
-  padding-top: 4rem;
+/* 1) Make the header take up space (prevents overlap) */
+.masthead {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
 }
 
-/* Fix anchor jumps + short pages (About / Resume) */
+/* 2) Add a universal top offset for pages just in case */
+body {
+  padding-top: 0 !important; /* sticky masthead should remove need for padding */
+}
+
+/* 3) Extra safety for short pages where the first content sits too high */
+.layout--single .page__inner-wrap,
+.layout--single .page__content,
+.initial-content,
+.page__inner-wrap,
+.page__content {
+  padding-top: 2.5rem !important;
+}
+
+/* 4) Fix anchor jumps (if clicking links lands under the masthead) */
 html {
-  scroll-padding-top: 4rem;
+  scroll-padding-top: 5rem;
 }
