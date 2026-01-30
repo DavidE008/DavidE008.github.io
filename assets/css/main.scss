@@ -43,7 +43,7 @@
 ;
 
 /* =====================================================
-   Fix: Navigation & Header Overlap
+   Fix: Navigation & Header Sticky Behavior
    ===================================================== */
 
 .masthead {
@@ -57,55 +57,45 @@ html {
 }
 
 /* =====================================================
-   Fix: Sidebar Overlapping Footer & Middle Scrollbar
+   Fix: Sidebar & Footer Layout (Resolves Overlap/Scrollers)
    ===================================================== */
 
-/* Ensure the main container holds children correctly */
+/* 1. Ensure the main container expands and cleans up layout */
 #main {
   display: flex !important;
-  flex-wrap: nowrap;
-  align-items: flex-start;
-  min-height: 80vh; /* Keeps footer down on short pages like Resume */
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 80vh; /* Pushes footer down on short pages like Resume */
   overflow: visible !important;
 }
 
-/* Sidebar behavior: Sticky but contained */
+/* 2. Sidebar: Sticky but contained, removing middle scroller */
 .sidebar {
   position: sticky !important;
-  top: 6rem; /* Adjust based on masthead height */
-  height: auto !important;
-  max-height: calc(100vh - 7rem);
-  overflow-y: auto; /* Allows sidebar to scroll independently if too long */
+  top: 5rem; /* Matches masthead height */
+  align-self: flex-start;
+  height: auto !important; 
+  overflow: visible !important; /* Removes the internal scrollbar */
   z-index: 10;
-  padding-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
-/* Hide scrollbar on sidebar for a cleaner look */
-.sidebar::-webkit-scrollbar {
-  display: none;
-}
-.sidebar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* Page content area */
+/* 3. Main content area expansion */
 .archive, .page {
   flex: 1;
   padding-top: 2.5rem !important;
 }
 
-/* Footer: Force to bottom and clear sidebar */
+/* 4. Footer Fix: High Z-Index and Clearing */
 .page__footer {
   position: relative !important;
   clear: both !important;
-  z-index: 20;
-  margin-top: 4rem !important;
-  background-color: #333 !important; /* Matches your dark theme background */
-  width: 100%;
+  z-index: 20; /* Ensures footer sits above any sidebar 'bleed' */
+  margin-top: 4rem !important; /* Visual gap */
+  background-color: #333 !important; /* Matches dark theme */
 }
 
-/* Mobile Responsiveness: Stack sidebar on top of content */
+/* 5. Mobile Responsiveness */
 @media (max-width: 1024px) {
   #main {
     flex-direction: column;
@@ -113,7 +103,6 @@ html {
   .sidebar {
     position: relative !important;
     top: 0 !important;
-    max-height: none;
     width: 100%;
   }
 }
