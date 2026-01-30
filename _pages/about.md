@@ -3,7 +3,6 @@ layout: single
 title: "About"
 permalink: /about/
 ---
-<div style="margin-top: 2.5rem;"></div>
 I’m **David Eldridge**, a Computer Science student at the University of Houston (Class of 2026).
 
 **Technical skills:** C++, Python, HTML/CSS, Java, Linux  
