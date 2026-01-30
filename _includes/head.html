@@ -11,6 +11,20 @@
 <script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
 </script>
+<style>
+  .masthead {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+  }
+  .page__inner-wrap,
+  .page__content,
+  .initial-content {
+    padding-top: 3.5rem !important;
+  }
+  html { scroll-padding-top: 5rem; }
+</style>
+
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="{{ base_path }}/assets/css/main.css">
