@@ -71,3 +71,43 @@ body {
 html {
   scroll-padding-top: 5rem;
 }
+/* =====================================================
+   Fix: Sidebar overlapping the Footer
+   ===================================================== */
+
+/* 1. Ensure the main content wrapper expands to hold its children */
+#main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-bottom: 2em; /* Spacing before footer starts */
+}
+
+/* 2. Constrain the sidebar so it doesn't "bleed" into the footer */
+.sidebar {
+  z-index: 10;
+  margin-bottom: 2em;
+  /* If the sidebar is sticky, this tells it where to stop */
+  max-height: calc(100vh - 100px); 
+  overflow-y: auto;
+}
+
+/* 3. Force the footer to stay at the bottom and clear the sidebar */
+.page__footer {
+  position: relative;
+  clear: both;
+  z-index: 20; /* Higher than sidebar */
+  background: var(--background-color, #fff); /* Prevents transparency issues */
+  width: 100%;
+  margin-top: 3em;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+/* 4. Hide scrollbar on sidebar for a cleaner look while keeping fix #2 active */
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+.sidebar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
