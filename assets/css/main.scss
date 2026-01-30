@@ -40,10 +40,11 @@
     "vendor/font-awesome/fontawesome",
     "vendor/font-awesome/solid",
     "vendor/font-awesome/brands"
-   /* Fix sticky nav overlapping page content */
+   
+
+;
+/* Fix sticky nav overlapping page content */
    .page__content,
    .page__inner-wrap {
       padding-top: 2.5rem;
    }
-
-;
