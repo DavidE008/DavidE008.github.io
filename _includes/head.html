@@ -5,75 +5,211 @@
 {% include seo.html %}
 
 <link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
 </script>
+
+<!-- Main site stylesheet -->
+<link rel="stylesheet" href="{{ base_path }}/assets/css/main.css">
+
+<!-- Critical presentation and contrast overrides -->
 <style>
-  /* Make sure the header doesn't overlap content */
-  .masthead,
-  .masthead__inner-wrap,
-  .greedy-nav {
+  :root {
+    --site-ink: #0f172a;
+    --site-muted: #526176;
+    --site-line: #dbe3ef;
+    --site-surface: #ffffff;
+    --site-background: #f6f8fc;
+    --site-primary: #4f46e5;
+    --site-nav: #111827;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    background: var(--site-background) !important;
+  }
+
+  body {
+    padding-top: 0 !important;
+    background: var(--site-background) !important;
+    color: var(--site-ink) !important;
+  }
+
+  /* Full-width, readable navigation */
+  .masthead {
     position: sticky !important;
     top: 0 !important;
     z-index: 9999 !important;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(17, 24, 39, 0.97) !important;
+    box-shadow: 0 8px 28px rgba(15, 23, 42, 0.16) !important;
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
   }
 
-  /* Push the whole site content down below the nav */
-  body {
-    padding-top: 5rem !important;
+  .masthead__inner-wrap,
+  .greedy-nav,
+  .greedy-nav .visible-links,
+  .greedy-nav .hidden-links {
+    background: transparent !important;
   }
 
-  /* Short pages need extra safety */
-  .layout--single .page__inner-wrap,
+  .greedy-nav a,
+  .masthead a,
+  .site-title,
+  .site-title:visited {
+    color: #ffffff !important;
+  }
+
+  .greedy-nav a:hover,
+  .masthead a:hover,
+  .greedy-nav a:focus-visible {
+    color: #c7d2fe !important;
+  }
+
+  .greedy-nav button,
+  .greedy-nav .navicon,
+  .greedy-nav .navicon::before,
+  .greedy-nav .navicon::after {
+    color: #ffffff !important;
+    background-color: #ffffff !important;
+  }
+
+  /* Standard content pages: About, Projects, Education, Resume */
+  .layout--single #main {
+    width: min(1180px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding-top: clamp(2rem, 5vw, 4rem);
+  }
+
+  .layout--single .page {
+    color: var(--site-ink) !important;
+  }
+
+  .layout--single .page__inner-wrap {
+    overflow: hidden;
+    padding: clamp(1.6rem, 4vw, 3.2rem) !important;
+    border: 1px solid var(--site-line);
+    border-radius: 24px;
+    background: var(--site-surface) !important;
+    box-shadow: 0 22px 60px rgba(15, 23, 42, 0.08);
+  }
+
+  .layout--single .page__title,
+  .layout--single .page__content h1,
+  .layout--single .page__content h2,
+  .layout--single .page__content h3,
+  .layout--single .page__content h4,
+  .layout--single .page__content strong,
+  .layout--single .page__content b {
+    color: var(--site-ink) !important;
+  }
+
+  .layout--single .page__title {
+    margin-bottom: 1.5rem;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+  }
+
+  .layout--single .page__content,
+  .layout--single .page__content p,
+  .layout--single .page__content li,
+  .layout--single .page__content span {
+    color: var(--site-muted) !important;
+  }
+
   .layout--single .page__content {
     padding-top: 0 !important;
+    padding-bottom: 2rem !important;
+    font-size: 1.02rem;
+    line-height: 1.75;
   }
 
-  /* Anchor offsets */
-  html {
-    scroll-padding-top: 6rem;
-  }
-</style>
-<script>
-  window.addEventListener('load', () => {
-    const masthead = document.querySelector('.masthead');
-    if (!masthead) return;
-    const h = masthead.getBoundingClientRect().height;
-    document.body.style.paddingTop = (h + 16) + 'px';
-    document.documentElement.style.scrollPaddingTop = (h + 16) + 'px';
-  });
-</script>
-<style>
-  /* Make sure the header doesn't overlap content */
-  .masthead,
-  .masthead__inner-wrap,
-  .greedy-nav {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 9999 !important;
+  .layout--single .page__content h2 {
+    margin-top: 2.4rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--site-line);
+    font-size: clamp(1.45rem, 3vw, 2rem);
   }
 
-  /* (Optional) keep your top offset if you want */
-  body { padding-top: 5rem !important; }
-  html { scroll-padding-top: 6rem; }
-
-  /* ✅ FIX: Footer overlaps short pages — add bottom room */
-  .page__inner-wrap,
-  .page__content,
-  .sidebar.sticky {
-    padding-bottom: 10rem !important;
+  .layout--single .page__content h3 {
+    margin-top: 1.8rem;
+    font-size: 1.2rem;
   }
 
-  /* Extra safety: ensure footer behaves normally */
+  .layout--single .page__content a {
+    color: var(--site-primary) !important;
+    font-weight: 700;
+    text-decoration-color: rgba(79, 70, 229, 0.35);
+    text-underline-offset: 0.2em;
+  }
+
+  .layout--single .page__content a:hover {
+    color: #3730a3 !important;
+    text-decoration-color: currentColor;
+  }
+
+  .layout--single .page__content hr {
+    border-color: var(--site-line) !important;
+  }
+
+  .layout--single .page__content code {
+    color: #312e81 !important;
+    background: #eef2ff !important;
+  }
+
+  .layout--single .page__content blockquote {
+    border-left-color: var(--site-primary) !important;
+    background: #f8faff;
+    color: var(--site-muted) !important;
+  }
+
+  .sidebar,
+  .author__content,
+  .author__bio,
+  .author__urls-wrapper,
+  .author__urls a {
+    color: var(--site-ink) !important;
+  }
+
   .page__footer {
     position: relative !important;
+    clear: both !important;
+    margin-top: 4rem !important;
+    background: var(--site-nav) !important;
+    color: #e5e7eb !important;
+  }
+
+  .page__footer a,
+  .page__footer p,
+  .page__footer li,
+  .page__footer span {
+    color: #e5e7eb !important;
+  }
+
+  :focus-visible {
+    outline: 3px solid #818cf8;
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 768px) {
+    .layout--single #main {
+      width: min(100% - 1rem, 1180px);
+      padding-top: 1rem;
+    }
+
+    .layout--single .page__inner-wrap {
+      padding: 1.25rem !important;
+      border-radius: 18px;
+    }
+
+    .greedy-nav a {
+      font-size: 0.9rem;
+    }
   }
 </style>
-
-
-
-<!-- For all browsers -->
-<link rel="stylesheet" href="{{ base_path }}/assets/css/main.css">
