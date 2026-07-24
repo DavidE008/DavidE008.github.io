@@ -7,7 +7,7 @@ site_theme               : "default"
 title                    : "David Eldridge"
 title_separator          : "-"
 name                     : &name "David Eldridge"
-description              : &description "Computer Science student at the University of Houston"
+description              : &description "Computer Science student building full-stack, mobile, and blockchain applications"
 url                      : "https://davide008.github.io"
 baseurl                  : ""
 repository               : "DavidE008/DavidE008.github.io"
@@ -17,13 +17,13 @@ author:
   avatar           : "Prof1.jpg"
   name             : "David Eldridge"
   pronouns         :
-  bio              : "Computer Science (B.S.) student at the University of Houston (2022–2026). Interested in software engineering and systems."
+  bio              : "Computer Science student at the University of Houston building full-stack, mobile, and blockchain applications. Expected graduation: 2027."
   location         : "Houston, TX"
   employer         : "University of Houston"
   uri              :
   email            : "david.eldridge@zohomail.com"
 
-  # Academic websites (optional – kept empty)
+  # Academic websites
   academia         :
   arxiv            :
   googlescholar    :
@@ -72,7 +72,7 @@ author:
   youtube          :
   zhihu            :
 
-# Publication Categories (kept for template compatibility)
+# Publication Categories
 publication_category:
   books:
     title: "Books"
@@ -110,7 +110,7 @@ facebook:
   app_id                 :
   publisher              :
 og_image                 :
-og_description           :
+og_description           : "Portfolio of David Eldridge, a Computer Science student building full-stack, mobile, and blockchain applications."
 
 social:
   type                   : Person
@@ -119,14 +119,11 @@ social:
     - "https://www.linkedin.com/in/david-eldridge8"
     - "https://github.com/DavidE008"
 
-# =========================
-# Google Analytics (REQUIRED)
-# =========================
+# Google Analytics
 analytics:
   provider               : "google-analytics-4"
   google:
     tracking_id          : "G-C8RZVZKC9E"
-# ⬆️ Replace with your real GA4 Measurement ID
 
 # Reading Files
 include:
@@ -138,102 +135,3 @@ exclude:
   - "*.sublime-workspace"
   - .asset-cache
   - .bundle
-  - .github
-  - .jekyll-assets-cache
-  - .sass-cache
-  - assets/js/_main.js
-  - assets/js/plugins
-  - assets/js/vendor
-  - CHANGELOG
-  - Capfile
-  - config
-  - Dockerfile
-  - Gemfile
-  - Gruntfile.js
-  - gulpfile.js
-  - LICENSE
-  - local
-  - log
-  - node_modules
-  - package.json*
-  - Rakefile
-  - README
-  - tmp
-  - vendor
-
-keep_files:
-  - .git
-  - .svn
-
-encoding: "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-
-# Conversion
-markdown: kramdown
-highlighter: rouge
-lsi: false
-excerpt_separator: "\n\n"
-incremental: false
-
-# Markdown Processing
-kramdown:
-  input: GFM
-  hard_wrap: false
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
-  enable_coderay: false
-
-# Collections (safe to keep even if unused)
-
-
-# Defaults
-defaults:
-  - scope:
-      path: ""
-      type: pages
-    values:
-      layout: single
-      author_profile: true
-
-# Sass
-sass:
-  sass_dir: _sass
-  style: compressed
-
-# Output
-permalink: /:categories/:title/
-timezone: Etc/UTC
-
-# Plugins (GitHub Pages compatible)
-plugins:
-  - jekyll-feed
-  - jekyll-gist
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-redirect-from
-  - jemoji
-
-whitelist:
-  - jekyll-feed
-  - jekyll-gist
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-redirect-from
-  - jemoji
-
-# Archives
-category_archive:
-  type: liquid
-  path: /categories/
-tag_archive:
-  type: liquid
-  path: /tags/
-
-# HTML Compression
-compress_html:
-  clippings: all
-  ignore:
-    envs: development
