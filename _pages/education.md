@@ -4,14 +4,15 @@ title: "Education"
 permalink: /education/
 ---
 
-## University of Houston — Houston, TX (2022–2026)
-**B.S. in Computer Science**
+## University of Houston — Houston, TX
+**B.S. in Computer Science, Expected 2027**
 
-- Honors: Dean’s List, Dean’s Freshman Excellence Award  
-- Relevant coursework: Data Structures & Algorithms, Linear Algebra, Computer Architecture, Calculus
+- Honors: Dean’s Freshman Excellence Award
+- Relevant coursework: Data Structures and Algorithms, Computer Architecture, Linear Algebra, Calculus, and Cryptography
+- Leadership: Founder and President of Blockchain Houston
 
-## Google IT Support Professional Certificate (Issued Feb 2024)
+## Additional Training
 
-- Gain skills required to succeed in an entry-level IT job
-- Learn to perform day-to-day IT support tasks including computer assembly, wireless networking, installing programs, and customer service
-- Learn how to provide end-to-end customer support, ranging from identifying problems to troubleshooting and debugging
+### Google IT Support Professional Certificate — February 2024
+
+Developed foundational experience in computer hardware, operating systems, networking, troubleshooting, system administration, and customer support.
